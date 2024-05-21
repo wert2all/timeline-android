@@ -1,0 +1,21 @@
+name: ktlint
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/ktlint.yml
+      - "src/**/*.kt"
+      - "**.kts"
+
+jobs:
+  ktlint:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone PR
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Run Ktlint
+        uses: lucasnlm/ktlint-action@master
