@@ -2,10 +2,6 @@ name: detekt
 
 on:
   pull_request:
-    paths:
-      - .github/workflows/detekt.yml
-      - "src/**/*.kt"
-      - "**.kts"
 
 jobs:
   detekt:
