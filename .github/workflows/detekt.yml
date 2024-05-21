@@ -1,0 +1,24 @@
+name: detekt
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/detekt.yml
+      - "src/**/*.kt"
+      - "**.kts"
+
+jobs:
+  detekt:
+    name: Static Code Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone PR
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Run detekt
+        uses: natiginfo/action-detekt-all@1.23.6
+        with:
+          args: --config detekt.yml
